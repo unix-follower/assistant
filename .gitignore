@@ -1,0 +1,7 @@
+.idea
+
+htmlcov
+.coverage
+app/config/local.env
+
+*__pycache__*
