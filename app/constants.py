@@ -1,0 +1,7 @@
+CLIENT_ADDRESS = "clientAddress"
+PROTOCOL = "protocol"
+METHOD = "method"
+STATUS_CODE = "statusCode"
+HTTP = "HTTP"
+URL = "url"
+UTF_8 = "utf-8"

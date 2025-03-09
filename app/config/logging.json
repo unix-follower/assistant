@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "handlers": {
+    "default": {
+      "class": "logging.StreamHandler",
+      "formatter": "json",
+      "stream": "ext://sys.stdout"
+    },
+    "access": {
+      "class": "logging.StreamHandler",
+      "formatter": "access",
+      "stream": "ext://sys.stdout"
+    }
+  },
+  "formatters": {
+    "text": {
+      "format": "%(levelname)s %(asctime)s %(filename)s %(funcName)s %(lineno)d %(name)s %(process)d %(processName)s %(thread)d %(threadName)s %(taskName)s %(message)s",
+      "datefmt": "%Y-%m-%dT%H:%M:%S%z"
+    },
+    "access": {
+      "class": "app.logging.access_log.AccessLogJsonFormatter",
+      "format": "%(levelname)s %(asctime)s %(filename)s %(funcName)s %(lineno)d %(name)s %(process)d %(processName)s %(thread)d %(threadName)s %(taskName)s %(clientAddress)s %(protocol)s %(method)s %(url)s %(statusCode)s %(message)s",
+      "datefmt": "%Y-%m-%dT%H:%M:%S%z"
+    },
+    "json": {
+      "class": "pythonjsonlogger.json.JsonFormatter",
+      "format": "%(levelname)s %(asctime)s %(filename)s %(funcName)s %(lineno)d %(name)s %(process)d %(processName)s %(thread)d %(threadName)s %(taskName)s %(message)s",
+      "datefmt": "%Y-%m-%dT%H:%M:%S%z"
+    }
+  },
+  "loggers": {
+    "root": {
+      "handlers": [
+        "default"
+      ],
+      "level": "INFO"
+    },
+    "uvicorn": {
+      "handlers": [
+        "default"
+      ],
+      "level": "INFO"
+    },
+    "uvicorn.access": {
+      "handlers": [
+        "access"
+      ],
+      "level": "INFO"
+    }
+  }
+}

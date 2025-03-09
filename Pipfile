@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = {extras = ["standard"], version = "*"}
+python-dotenv = "*"
+python-json-logger = "*"
+pydantic-settings = "*"
+fastapi-healthchecks = "*"
+
+[dev-packages]
+pylint = "*"
+black = "*"
+coverage = "*"
+
+[requires]
+python_version = "3.13"
+python_full_version = "3.13.2"
+
+[scripts]
+lint = "pylint ."
+format = "black ."
+test = "pytest tests/"
+coverage = "pytest --cov=app tests/"
+coverage-html = "coverage html"
